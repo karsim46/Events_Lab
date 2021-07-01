@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+   <h1>Special Events</h1>
+
+    <form class="form-inline" action="/events" method="post">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name">
+
+    <label for="date">Date</label>
+    <input type="date" name="date" id="date">
+  
+
+    <label for="guests">Guests Coming</label>
+    <input type="number" name="guests" id="guests">
+
+    <label for="room">Rooms Required</label>
+    <input type="text" name="room" id="room">
+
+    <label for="description">Event Description</label>
+    <input type="text" name="description" id="description">
+    
+    <input type="submit" value="Add Event">
+    </form>
+    
+
+
+    {% for event in events %}
+    <div>{{event.date}}:</div>
+    <div>{{event.name}}:</div>
+    <div>{{event.guests}}:</div>
+    <div>{{event.room}}:</div>
+    <div>{{event.description}}</div>
+
+    {% endfor %}
+
+{% endblock %}
+
